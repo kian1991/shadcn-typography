@@ -1,6 +1,6 @@
 ## shadcn/ui inspired typography components
 
-This is a collection of typography components created off of the [shadcn/ui](https://ui.shadcn.com/docs/components/typography) website. The components are built using Tailwind CSS and React.
+This is a collection of typography components created off of the [shadcn/ui](https://ui.shadcn.com/docs/components/typography) website. The components are built using Tailwind CSS and React. You can use `className` to add additional styles to the components.
 
 #### Table of Contents
 
@@ -11,6 +11,8 @@ This is a collection of typography components created off of the [shadcn/ui](htt
 ## Components
 
 `H1` - `H4` - Heading components
+
+> If you want the `H2` to have no underline, add the class `border-none` to the component
 
 ```jsx
 <div>

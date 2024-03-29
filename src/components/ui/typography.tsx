@@ -14,8 +14,8 @@ export function H1(props: React.HTMLAttributes<HTMLHeadingElement>) {
 		<h1
 			{...props}
 			className={cn(
-				props.className,
-				'scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl'
+				'scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl',
+				props.className
 			)}>
 			{props.children}
 		</h1>
@@ -27,8 +27,8 @@ export function H2(props: React.HTMLAttributes<HTMLHeadingElement>) {
 		<h2
 			{...props}
 			className={cn(
-				props.className,
-				'scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0'
+				'scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0',
+				props.className
 			)}>
 			{props.children}
 		</h2>

@@ -2,12 +2,15 @@
 	"name": "shadcn-typography",
 	"version": "1.0.2",
 	"description": "This is a collection of typography components created off of the shadcn/ui website. The components are built using Tailwind CSS and React.",
-	"main": "index.js",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
 	"directories": {
 		"lib": "lib",
 		"components": "components"
 	},
 	"scripts": {
+		"build": "tailwindcss -o dist/style.css && tsc",
+		"prepublish": "tailwindcss -o dist/style.css && tsc",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"repository": {
@@ -20,7 +23,10 @@
 		"components",
 		"next.js",
 		"react",
-		"tailwindcss"
+		"tailwindcss",
+		"typescript",
+		"ui",
+		"reuseable"
 	],
 	"author": "Kian Lütke",
 	"license": "ISC",
@@ -30,7 +36,12 @@
 	"homepage": "https://github.com/kian1991/shadcn-typography#readme",
 	"peerDependencies": {
 		"clsx": "^2.1.0",
-		"react-dom": "^18.2.0",
 		"tailwind-merge": "^2.2.2"
+	},
+	"devDependencies": {
+		"@types/react": "^18.2.73",
+		"autoprefixer": "^10.4.19",
+		"postcss": "^8.4.38",
+		"tailwindcss": "^3.4.3"
 	}
 }
