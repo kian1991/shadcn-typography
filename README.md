@@ -10,6 +10,8 @@ This is a collection of typography components created off of the [shadcn/ui](htt
 
 ## Components
 
+![examples](image.png)
+
 `H1` - `H4` - Heading components
 
 > If you want the `H2` to have no underline, add the class `border-none` to the component
