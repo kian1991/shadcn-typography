@@ -1,6 +1,6 @@
 {
 	"name": "shadcn-typography",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "This is a collection of typography components created off of the shadcn/ui website. The components are built using Tailwind CSS and React.",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
