@@ -66,9 +66,7 @@ export function P(props: React.HTMLAttributes<HTMLParagraphElement>) {
 	);
 }
 
-interface LargeProps extends React.HTMLAttributes<HTMLDivElement> {}
-
-export function Large(props: LargeProps) {
+export function Large(props: React.HTMLAttributes<HTMLDivElement>) {
 	return (
 		<div className={cn(props.className, 'text-lg font-semibold')}>{props.children}</div>
 	);
