@@ -28,17 +28,15 @@ yarn add shadcn-typography
 
 ## Components
 
-`Lead` - A large text component for headings
-
-```jsx
-<Lead>Some text</Lead>
-```
-
 `H1` - `H4` - Heading components
 
 ```jsx
-<H1>Big Heading Text</H1>
-<H2>Some smaller Text</H2>
+<div>
+	<H1>Big Heading Text</H1>
+	<H2>Some smaller Text</H2>
+	<H3>Even smaller text</H3>
+	<H4>Smallest text</H4>
+</div>
 ```
 
 `P` - Paragraph component
@@ -47,8 +45,45 @@ yarn add shadcn-typography
 <P>I am the paragraph 🦭</P>
 ```
 
-`Large` - Larger Text component
+`Large` - Larger text component
 
 ```jsx
 <Large>Some large text</Large>
+```
+
+`Small` - Obviously a smaller text component
+
+```jsx
+<Small>Some damn small text</Small>
+```
+
+`Lead` - A large text component for headings
+
+```jsx
+<Lead>Some text</Lead>
+```
+
+`Quote` - A blockquote component
+
+```jsx
+<Quote>
+	I like to look at one or two random quotes each morning. It can be a good exercise for
+	journaling prompts.
+</Quote>
+```
+
+`InlineCode` - Inline code component
+
+```jsx
+<InlineCode>npm install shadcn-typography</InlineCode>
+```
+
+`List` - A list component
+
+```jsx
+<List>
+	<li>Item 1</li>
+	<li>Item 2</li>
+	<li>Item 3</li>
+</List>
 ```

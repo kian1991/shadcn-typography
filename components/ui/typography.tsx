@@ -110,8 +110,7 @@ export function List(props: React.HTMLAttributes<HTMLUListElement>) {
 	);
 }
 
-//mt-6 border-l-2 pl-6 italic
-export function BlockQuote(props: React.HTMLAttributes<HTMLQuoteElement>) {
+export function Quote(props: React.HTMLAttributes<HTMLQuoteElement>) {
 	return (
 		<blockquote
 			{...props}
