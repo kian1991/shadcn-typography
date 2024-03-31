@@ -3,7 +3,7 @@ import { cn } from '../../lib/utils';
 
 export function Lead(props: React.HTMLAttributes<HTMLParagraphElement>) {
 	return (
-		<p {...props} className={cn(props.className, 'text-xl text-muted-foreground')}>
+		<p {...props} className={cn('text-xl text-muted-foreground', props.className)}>
 			{props.children}
 		</p>
 	);
@@ -40,8 +40,8 @@ export function H3(props: React.HTMLAttributes<HTMLHeadingElement>) {
 		<h3
 			{...props}
 			className={cn(
-				props.className,
-				'scroll-m-20 text-2xl font-semibold tracking-tight'
+				'scroll-m-20 text-2xl font-semibold tracking-tight',
+				props.className
 			)}>
 			{props.children}
 		</h3>
@@ -52,7 +52,7 @@ export function H4(props: React.HTMLAttributes<HTMLHeadingElement>) {
 	return (
 		<h4
 			{...props}
-			className={cn(props.className, 'scroll-m-20 text-xl font-semibold tracking-tight')}>
+			className={cn('scroll-m-20 text-xl font-semibold tracking-tight', props.className)}>
 			{props.children}
 		</h4>
 	);
@@ -60,7 +60,7 @@ export function H4(props: React.HTMLAttributes<HTMLHeadingElement>) {
 
 export function P(props: React.HTMLAttributes<HTMLParagraphElement>) {
 	return (
-		<p {...props} className={cn(props.className, 'leading-7 [&:not(:first-child)]:mt-6')}>
+		<p {...props} className={cn('leading-7 [&:not(:first-child)]:mt-6', props.className)}>
 			{props.children}
 		</p>
 	);
@@ -68,13 +68,15 @@ export function P(props: React.HTMLAttributes<HTMLParagraphElement>) {
 
 export function Large(props: React.HTMLAttributes<HTMLDivElement>) {
 	return (
-		<div className={cn(props.className, 'text-lg font-semibold')}>{props.children}</div>
+		<div {...props} className={cn('text-lg font-semibold', props.className)}>
+			{props.children}
+		</div>
 	);
 }
 
 export function Small(props: React.HTMLAttributes<HTMLParagraphElement>) {
 	return (
-		<p {...props} className={cn(props.className, 'text-sm font-medium leading-none')}>
+		<p {...props} className={cn('text-sm font-medium leading-none', props.className)}>
 			{props.children}
 		</p>
 	);
@@ -82,7 +84,7 @@ export function Small(props: React.HTMLAttributes<HTMLParagraphElement>) {
 
 export function Muted(props: React.HTMLAttributes<HTMLSpanElement>) {
 	return (
-		<span {...props} className={cn(props.className, 'text-sm text-muted-foreground')}>
+		<span {...props} className={cn('text-sm text-muted-foreground', props.className)}>
 			{props.children}
 		</span>
 	);
@@ -92,8 +94,8 @@ export function InlineCode(props: React.HTMLAttributes<HTMLSpanElement>) {
 	return (
 		<code
 			className={cn(
-				props.children,
-				'relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold'
+				'relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold',
+				props.className
 			)}>
 			{props.children}
 		</code>
@@ -102,7 +104,7 @@ export function InlineCode(props: React.HTMLAttributes<HTMLSpanElement>) {
 
 export function List(props: React.HTMLAttributes<HTMLUListElement>) {
 	return (
-		<ul className={cn(props.className, 'my-6 ml-6 list-disc [&>li]:mt-2')}>
+		<ul {...props} className={cn('my-6 ml-6 list-disc [&>li]:mt-2', props.className)}>
 			{props.children}
 		</ul>
 	);
@@ -113,8 +115,8 @@ export function Quote(props: React.HTMLAttributes<HTMLQuoteElement>) {
 		<blockquote
 			{...props}
 			className={cn(
-				props.className,
-				'mt-6 border-l-2 pl-6 italic text-muted-foreground'
+				'mt-6 border-l-2 pl-6 italic text-muted-foreground',
+				props.className
 			)}>
 			{props.children}
 		</blockquote>
