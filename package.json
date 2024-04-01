@@ -1,6 +1,6 @@
 {
 	"name": "shadcn-typography",
-	"version": "1.0.5",
+	"version": "1.0.6",
 	"description": "This is a collection of typography components created off of the shadcn/ui website. The components are built using Tailwind CSS and React.",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
@@ -26,7 +26,9 @@
 		"tailwindcss",
 		"typescript",
 		"ui",
-		"reuseable"
+		"reuseable",
+		"forwardRef",
+		"className"
 	],
 	"author": "Kian Lütke",
 	"license": "ISC",
