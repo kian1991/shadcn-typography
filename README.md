@@ -14,6 +14,7 @@ This is a collection of typography components created off of the [shadcn/ui](htt
 1. [Components](#components)
 2. [Prerequisites for using the copy method](#prerequisites-for-using-the-copy-method)
 3. [Installation](#installation)
+4. [License](LICENSE.md)
 
 ## Components
 
@@ -118,213 +119,105 @@ Create the file `./components/ui/typography.tsx` and paste the following:
 
 ```tsx
 import React, { forwardRef } from 'react';
-import { cn } from '../../lib/utils';
+import { cn } from '@/lib/utils';
 
-const H1 = forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTMLHeadingElement>>(
-	(props, ref) => {
-		return (
-			<h1
-				{...props}
-				ref={ref}
-				className={cn(
-					'scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl',
-					props.className
-				)}>
-				{props.children}
-			</h1>
-		);
-	}
+// Reusable helper to create components with consistent structure
+const createComponent = <T extends HTMLElement>(
+  tag: keyof JSX.IntrinsicElements,
+  defaultClassName: string,
+  displayName: string
+) => {
+  const Component = forwardRef<T, React.HTMLAttributes<T>>((props, ref) => {
+    return React.createElement(
+      tag,
+      { ...props, ref, className: cn(defaultClassName, props.className) },
+      props.children
+    );
+  });
+  Component.displayName = displayName;
+  return Component;
+};
+
+export const H1 = createComponent<HTMLHeadingElement>(
+  'h1',
+  'scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl',
+  'H1'
 );
 
-H1.displayName = 'H1';
-export { H1 };
-
-const H2 = forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTMLHeadingElement>>(
-	(props, ref) => {
-		return (
-			<h2
-				{...props}
-				ref={ref}
-				className={cn(
-					'scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0',
-					props.className
-				)}>
-				{props.children}
-			</h2>
-		);
-	}
+export const H2 = createComponent<HTMLHeadingElement>(
+  'h2',
+  'scroll-m-20 border-b py-2 text-3xl font-semibold tracking-tight first:mt-0',
+  'H2'
 );
 
-H2.displayName = 'H2';
-export { H2 };
-
-const H3 = forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTMLHeadingElement>>(
-	(props, ref) => {
-		return (
-			<h3
-				{...props}
-				ref={ref}
-				className={cn(
-					'scroll-m-20 text-2xl font-semibold tracking-tight',
-					props.className
-				)}>
-				{props.children}
-			</h3>
-		);
-	}
+export const H3 = createComponent<HTMLHeadingElement>(
+  'h3',
+  'scroll-m-20 text-2xl font-semibold tracking-tight',
+  'H3'
 );
 
-H3.displayName = 'H3';
-export { H3 };
-
-const H4 = forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTMLHeadingElement>>(
-	(props, ref) => {
-		return (
-			<h4
-				{...props}
-				ref={ref}
-				className={cn(
-					'scroll-m-20 text-xl font-semibold tracking-tight',
-					props.className
-				)}>
-				{props.children}
-			</h4>
-		);
-	}
+export const H4 = createComponent<HTMLHeadingElement>(
+  'h4',
+  'scroll-m-20 text-xl font-semibold tracking-tight',
+  'H4'
 );
 
-H4.displayName = 'H4';
-export { H4 };
-
-const Lead = forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLParagraphElement>>(
-	(props, ref) => {
-		return (
-			<p
-				{...props}
-				ref={ref}
-				className={cn('text-xl text-muted-foreground', props.className)}>
-				{props.children}
-			</p>
-		);
-	}
+export const Lead = createComponent<HTMLParagraphElement>(
+  'p',
+  'text-xl text-muted-foreground',
+  'Lead'
 );
 
-Lead.displayName = 'Lead';
-export { Lead };
-
-const P = forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLParagraphElement>>(
-	(props, ref) => {
-		return (
-			<p
-				{...props}
-				ref={ref}
-				className={cn('leading-7 [&:not(:first-child)]:mt-6', props.className)}>
-				{props.children}
-			</p>
-		);
-	}
+export const P = createComponent<HTMLParagraphElement>(
+  'p',
+  'leading-7 [&:not(:first-child)]:mt-6',
+  'P'
 );
 
-P.displayName = 'P';
-export { P };
-
-const Large = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-	(props, ref) => {
-		return (
-			<div {...props} ref={ref} className={cn('text-lg font-semibold', props.className)}>
-				{props.children}
-			</div>
-		);
-	}
+export const Large = createComponent<HTMLDivElement>(
+  'div',
+  'text-lg font-semibold',
+  'Large'
 );
 
-Large.displayName = 'Large';
-export { Large };
-
-const Small = forwardRef<
-	HTMLParagraphElement,
-	React.HTMLAttributes<HTMLParagraphElement>
->((props, ref) => {
-	return (
-		<p
-			{...props}
-			ref={ref}
-			className={cn('text-sm font-medium leading-none', props.className)}>
-			{props.children}
-		</p>
-	);
-});
-
-Small.displayName = 'Small';
-export { Small };
-
-const Muted = forwardRef<HTMLSpanElement, React.HTMLAttributes<HTMLSpanElement>>(
-	(props, ref) => {
-		return (
-			<span
-				{...props}
-				ref={ref}
-				className={cn('text-sm text-muted-foreground', props.className)}>
-				{props.children}
-			</span>
-		);
-	}
+export const Small = createComponent<HTMLParagraphElement>(
+  'p',
+  'text-sm font-medium leading-none',
+  'Small'
 );
 
-Muted.displayName = 'Muted';
-export { Muted };
-
-const InlineCode = forwardRef<HTMLSpanElement, React.HTMLAttributes<HTMLSpanElement>>(
-	(props, ref) => {
-		return (
-			<code
-				{...props}
-				ref={ref}
-				className={cn(
-					'relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold',
-					props.className
-				)}>
-				{props.children}
-			</code>
-		);
-	}
+export const Muted = createComponent<HTMLSpanElement>(
+  'span',
+  'text-sm text-muted-foreground',
+  'Muted'
 );
 
-InlineCode.displayName = 'InlineCode';
-export { InlineCode };
-
-const List = forwardRef<HTMLUListElement, React.HTMLAttributes<HTMLUListElement>>(
-	(props, ref) => {
-		return (
-			<ul
-				{...props}
-				ref={ref}
-				className={cn('my-6 ml-6 list-disc [&>li]:mt-2', props.className)}>
-				{props.children}
-			</ul>
-		);
-	}
+export const InlineCode = createComponent<HTMLSpanElement>(
+  'code',
+  'relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold',
+  'InlineCode'
 );
 
-List.displayName = 'List';
-export { List };
-
-const Quote = forwardRef<HTMLQuoteElement, React.HTMLAttributes<HTMLQuoteElement>>(
-	(props, ref) => {
-		return (
-			<blockquote
-				{...props}
-				ref={ref}
-				className={cn(
-					'mt-6 border-l-2 pl-6 italic text-muted-foreground',
-					props.className
-				)}>
-				{props.children}
-			</blockquote>
-		);
-	}
+export const MultilineCode = createComponent<HTMLPreElement>(
+  'pre',
+  'relative rounded bg-muted p-4 font-mono text-sm font-semibold overflow-x-auto',
+  'MultilineCode'
 );
 
-Quote.displayName = 'Quote';
-export { Quote };
+export const List = createComponent<HTMLUListElement>(
+  'ul',
+  'my-6 ml-6 list-disc [&>li]:mt-2',
+  'List'
+);
+
+export const Quote = createComponent<HTMLQuoteElement>(
+  'blockquote',
+  'mt-6 border-l-2 pl-6 italic text-muted-foreground',
+  'Quote'
+);
+
 ```
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
