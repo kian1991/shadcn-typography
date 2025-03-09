@@ -1,49 +1,55 @@
 {
-	"name": "shadcn-typography",
-	"version": "1.0.7",
-	"description": "This is a collection of typography components created off of the shadcn/ui website. The components are built using Tailwind CSS and React.",
-	"main": "dist/index.js",
-	"types": "dist/index.d.ts",
-	"directories": {
-		"lib": "lib",
-		"components": "components"
-	},
-	"scripts": {
-		"build": "tailwindcss -o dist/style.css && tsc",
-		"prepublish": "tailwindcss -o dist/style.css && tsc",
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/kian1991/shadcn-typography.git"
-	},
-	"keywords": [
-		"shadcn",
-		"typography",
-		"components",
-		"next.js",
-		"react",
-		"tailwindcss",
-		"typescript",
-		"ui",
-		"reuseable",
-		"forwardRef",
-		"className"
-	],
-	"author": "Kian Lütke",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/kian1991/shadcn-typography/issues"
-	},
-	"homepage": "https://github.com/kian1991/shadcn-typography#readme",
-	"peerDependencies": {
-		"clsx": "^2.1.0",
-		"tailwind-merge": "^2.2.2"
-	},
-	"devDependencies": {
-		"@types/react": "^18.2.73",
-		"autoprefixer": "^10.4.19",
-		"postcss": "^8.4.38",
-		"tailwindcss": "^3.4.3"
-	}
+  "name": "shadcn-typography",
+  "version": "1.0.8",
+  "description": "This is a collection of typography components created off of the shadcn/ui website. The components are built using Tailwind CSS and React.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.githubusercontent.com/kian1991/shadcn-typography/refs/heads/main/LICENSE.md"
+    }
+  ],
+  "directories": {
+    "lib": "lib",
+    "components": "components"
+  },
+  "scripts": {
+    "build": "tailwindcss -o dist/style.css && tsc",
+    "prepublish": "tailwindcss -o dist/style.css && tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kian1991/shadcn-typography.git"
+  },
+  "keywords": [
+    "shadcn",
+    "typography",
+    "components",
+    "next.js",
+    "react",
+    "tailwindcss",
+    "typescript",
+    "ui",
+    "reuseable",
+    "forwardRef",
+    "className"
+  ],
+  "author": "Kian Lütke",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kian1991/shadcn-typography/issues"
+  },
+  "homepage": "https://github.com/kian1991/shadcn-typography#readme",
+  "peerDependencies": {
+    "clsx": "^2.1.0",
+    "tailwind-merge": "^2.2.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.73",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3"
+  }
 }
