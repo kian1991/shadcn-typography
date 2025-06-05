@@ -1,9 +1,10 @@
 import React, { forwardRef } from 'react';
+
 import { cn } from '@/lib/utils';
 
 // Reusable helper to create components with consistent structure
 const createComponent = <T extends HTMLElement>(
-  tag: keyof JSX.IntrinsicElements,
+  tag: keyof React.JSX.IntrinsicElements,
   defaultClassName: string,
   displayName: string
 ) => {
