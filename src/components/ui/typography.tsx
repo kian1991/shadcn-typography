@@ -1,5 +1,5 @@
-import React, { forwardRef } from 'react';
-import { cn } from '@/lib/utils';
+import React, { forwardRef, JSX } from 'react';
+import { cn } from '../../lib/utils';
 
 // Reusable helper to create components with consistent structure
 const createComponent = <T extends HTMLElement>(

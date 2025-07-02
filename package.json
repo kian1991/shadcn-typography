@@ -1,6 +1,6 @@
 {
   "name": "shadcn-typography",
-  "version": "1.0.8",
+  "version": "1.1.0",
   "description": "This is a collection of typography components created off of the shadcn/ui website. The components are built using Tailwind CSS and React.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -15,8 +15,8 @@
     "components": "components"
   },
   "scripts": {
-    "build": "tailwindcss -o dist/style.css && tsc",
-    "prepublish": "tailwindcss -o dist/style.css && tsc",
+    "build": "npx @tailwindcss/cli -i ./src/styles.css -o dist/style.css && tsc",
+    "prepublish": "npx @tailwindcss/cli -i ./src/styles.css -o dist/style.css && tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -47,9 +47,11 @@
     "tailwind-merge": "^2.2.2"
   },
   "devDependencies": {
-    "@types/react": "^18.2.73",
-    "autoprefixer": "^10.4.19",
-    "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.3"
+    "@types/react": "^19.1.8",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.11",
+    "tailwindcss": "^4.1.11"
   }
 }
