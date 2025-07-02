@@ -121,8 +121,8 @@ yarn add shadcn-typography
 Create the file `./components/ui/typography.tsx` and paste the following:
 
 ```tsx
-import React, { forwardRef } from 'react';
-import { cn } from '@/lib/utils';
+import React, { forwardRef, JSX } from 'react';
+import { cn } from '.@/lib/utils';
 
 // Reusable helper to create components with consistent structure
 const createComponent = <T extends HTMLElement>(
@@ -197,13 +197,13 @@ export const Muted = createComponent<HTMLSpanElement>(
 
 export const InlineCode = createComponent<HTMLSpanElement>(
   'code',
-  'relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold',
+  'relative rounded-sm bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold',
   'InlineCode'
 );
 
 export const MultilineCode = createComponent<HTMLPreElement>(
   'pre',
-  'relative rounded bg-muted p-4 font-mono text-sm font-semibold overflow-x-auto',
+  'relative rounded-sm bg-muted p-4 font-mono text-sm font-semibold overflow-x-auto',
   'MultilineCode'
 );
 
