@@ -1,0 +1,40 @@
+name: Publish to npm
+
+# Publishes when a GitHub Release is published. The release tag must match
+# the version in package.json (e.g. tag `v2.0.0` for version `2.0.0`).
+#
+# Uses npm Trusted Publishing (OIDC): no NPM_TOKEN secret is needed. Configure
+# it once on npmjs.com under the package's "Trusted Publisher" settings with
+# repository `kian1991/shadcn-typography` and workflow `publish.yml`.
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+
+      - name: Verify tag matches package.json version
+        run: |
+          PKG_VERSION="$(node -p "require('./package.json').version")"
+          TAG="${GITHUB_REF_NAME#v}"
+          if [ "$PKG_VERSION" != "$TAG" ]; then
+            echo "Tag v$TAG does not match package.json version $PKG_VERSION"
+            exit 1
+          fi
+
+      - run: npm ci
+      - run: npm run check
+      - run: npm run build
+      - run: npm publish
