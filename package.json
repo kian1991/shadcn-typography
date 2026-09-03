@@ -1,23 +1,44 @@
 {
   "name": "shadcn-typography",
-  "version": "1.1.2",
-  "description": "This is a collection of typography components created off of the shadcn/ui website. The components are built using Tailwind CSS and React.",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://raw.githubusercontent.com/kian1991/shadcn-typography/refs/heads/main/LICENSE.md"
-    }
+  "version": "2.0.0",
+  "description": "shadcn/ui inspired typography components for React and Tailwind CSS v4. Extendable via className, ref forwarding, fully typed.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "LICENSE.md",
+    "README.md"
   ],
-  "directories": {
-    "lib": "lib",
-    "components": "components"
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
   },
   "scripts": {
-    "build": "npx @tailwindcss/cli -i ./src/styles.css -o dist/style.css && tsc",
-    "prepublish": "npx @tailwindcss/cli -i ./src/styles.css -o dist/style.css && tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check": "npm run typecheck && npm run lint && npm run format:check && npm run test",
+    "prepublishOnly": "npm run check && npm run build"
   },
   "repository": {
     "type": "git",
@@ -25,33 +46,52 @@
   },
   "keywords": [
     "shadcn",
+    "shadcn-ui",
     "typography",
     "components",
-    "next.js",
     "react",
     "tailwindcss",
+    "tailwind-v4",
     "typescript",
     "ui",
-    "reuseable",
+    "headings",
     "forwardRef",
     "className"
   ],
   "author": "Kian Lütke",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/kian1991/shadcn-typography/issues"
   },
   "homepage": "https://github.com/kian1991/shadcn-typography#readme",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
   "peerDependencies": {
     "clsx": "^2.1.1",
+    "react": "^18.0.0 || ^19.0.0",
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
-    "@types/react": "^19.1.8",
-    "typescript": "^5.8.3"
-  },
-  "dependencies": {
-    "@tailwindcss/cli": "^4.1.11",
-    "tailwindcss": "^4.1.11"
+    "@eslint/js": "^10.0.1",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.5",
+    "clsx": "^2.1.1",
+    "eslint": "^10.9.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.12.0",
+    "jsdom": "^30.0.1",
+    "prettier": "^3.9.6",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "tailwind-merge": "^3.6.0",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.69.0",
+    "vitest": "^4.1.11"
   }
 }
